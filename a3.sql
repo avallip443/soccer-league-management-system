@@ -5,7 +5,7 @@ CREATE TABLE CompetitionAdmin (
 	Email VARCHAR2(30),
 	PhoneNumber VARCHAR2(15),
 	Username VARCHAR2(24) NOT NULL,
-	Password VARCHAR2(24) NOT NULL,
+	AdminPassword VARCHAR2(24) NOT NULL,
 	PRIMARY KEY(CompetitionAdminID)
 );
 
@@ -46,8 +46,8 @@ CREATE TABLE Player (
 	Email VARCHAR2(30),
 	PhoneNumber VARCHAR2(15),
 	Username VARCHAR2(24) NOT NULL,
-	Password VARCHAR2(24) NOT NULL,
-	Position VARCHAR2(15) NULL,
+	PlayerPassword VARCHAR2(24) NOT NULL,
+	PlayerPosition VARCHAR2(15) NULL,
 	PRIMARY KEY(PlayerID),
 	FOREIGN KEY (TeamID) REFERENCES Team(TeamID)
 );
@@ -61,7 +61,7 @@ CREATE TABLE TeamManagement (
 	Email VARCHAR2(30),
 	PhoneNumber VARCHAR2(15),
 	Username VARCHAR2(24) NOT NULL,
-	Password VARCHAR2(24) NOT NULL,
+	ManagementPassword VARCHAR2(24) NOT NULL,
 	TeamRole VARCHAR2(15),
 	PRIMARY KEY(TeamManagementID, TeamID),
 	FOREIGN KEY (TeamID) REFERENCES Team(TeamID)
@@ -75,7 +75,7 @@ CREATE TABLE Referee (
 	Email VARCHAR2(30),
 	PhoneNumber VARCHAR2(15),
 	Username VARCHAR2(24) NOT NULL,
-	Password VARCHAR2(24) NOT NULL,
+	RefereePassword VARCHAR2(24) NOT NULL,
 	PRIMARY KEY(RefereeID)
 );
 
