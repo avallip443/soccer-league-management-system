@@ -106,7 +106,7 @@ CREATE TABLE GameTeamStats (
 	CompetitionAdminID NUMBER NOT NULL,
 	LeagueID NUMBER NOT NULL,
 	RefereeID NUMBER NOT NULL,
-	Goals INT NULL,
+	Goals NUMBER NULL,
 	PRIMARY KEY (GameID, TeamID),
 	FOREIGN KEY (GameID, CompetitionAdminID, RefereeID) REFERENCES Game(GameID, CompetitionAdminID, RefereeID),
 	FOREIGN KEY (TeamID, LeagueID) REFERENCES Team(TeamID, LeagueID)
