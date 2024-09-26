@@ -95,7 +95,7 @@ CREATE TABLE Game (
 	GameTime TIMESTAMP,
 	MatchStatus VARCHAR(10) DEFAULT 'SCHEDULED',
 	PRIMARY KEY (GameID),
-	FOREIGN KEY (CompetitionAdminID) REFERENCES CompetitionID(CompetitionAdminID),
+	FOREIGN KEY (CompetitionAdminID) REFERENCES CompetitionAdmin(CompetitionAdminID),
 	FOREIGN KEY (RefereeID) REFERENCES Referee(RefereeID)
 );
 
@@ -106,6 +106,7 @@ CREATE TABLE GameTeamStats (
 	LeagueID NUMBER NOT NULL,
 	RefereeID NUMBER NOT NULL,
 	Goals INT NULL,
+	PRIMARY KEY (GameID, TeamID),
 	FOREIGN KEY (GameID, CompetitionAdminID, RefereeID) REFERENCES Game(GameID, CompetitionAdminID, RefereeID),
 	FOREIGN KEY (TeamID, LeagueID) REFERENCES Team(TeamID, LeagueID)
 );
@@ -117,14 +118,14 @@ CREATE TABLE GamePlayerStats (
 	RefereeID NUMBER NOT NULL,
 	TeamID NUMBER NOT NULL,
 	LeagueID NUMBER NOT NULL,
-	CompetitionAdminID NUMBER NOT NULL,
 	Saves NUMBER NULL,
 	Goals NUMBER NULL,
 	Assists NUMBER NULL,
 	Blocks NUMBER NULL,
 	RedCards NUMBER NULL,
 	YellowCards NUMBER NULL,
+	PRIMARY KEY (GameID, PlayerID),
 	FOREIGN KEY (GameID, CompetitionAdminID, RefereeID) REFERENCES Game(GameID, CompetitionAdminID, RefereeID),
-	FOREIGN KEY (TeamID, LeagueID, CompetitionAdminID) REFERENCES Player(TeamID, LeagueID, CompetitionAdminID),
+	FOREIGN KEY (PlayerID) REFERENCES Player(PlayerID),
 );
 
