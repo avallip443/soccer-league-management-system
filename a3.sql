@@ -88,12 +88,23 @@ CREATE TABLE Game (
 	GameID NUMBER, 
 	CompetitionAdminID NUMBER NOT NULL,
 	RefereeID NUMBER NOT NULL,
-	Location VARCHAR2(30),
-	Date DATE NOT NULL,
-	Time TIMESTAMP,
+	GameLocation VARCHAR2(30),
+	GameDate DATE NOT NULL,
+	GameTime TIMESTAMP,
 	MatchStatus VARCHAR(10) DEFAULT 'SCHEDULED',
 	PRIMARY KEY (GameID),
 	FOREIGN KEY (CompetitionAdminID) REFERENCES CompetitionID(CompetitionAdminID),
 	FOREIGN KEY (RefereeID) REFERENCES Referee(RefereeID)
 );
-	
+
+CREATE TABLE Game-Team-Stats (
+	GameID NUMBER NOT NULL,
+	TeamID NUMBER NOT NULL,
+	CompetitionAdminID NUMBER NOT NULL,
+	LeagueID NUMBER NOT NULL,
+	RefereeID NUMBER NOT NULL,
+	Goals INT NULL,
+	FOREIGN KEY (GameID, CompetitionAdminID, RefereeID) REFERENCES Game(GameID, CompetitionAdminID, RefereeID),
+	FOREIGN KEY (TeamID, LeagueID) REFERENCES Team(TeamID, LeagueID),
+
+);
