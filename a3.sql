@@ -80,7 +80,8 @@ CREATE TABLE Match (
 	CompetitionAdminID NUMBER REFERENCES CompetitionAdmin(CompetitionAdminID),
 	RefereeID NUMBER REFERENCES Referee(RefereeID),
 	Location VARCHAR2(30),
-	Date DATETIME,
+	Date DATE,
+	Time TIMESTAMP,
 	MatchStatus VARCHAR(10),
 	PRIMARY KEY(RefereeID, CompetitionAdminID, RefereeID)
 );
