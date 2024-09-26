@@ -6,7 +6,7 @@ CREATE TABLE CompetitionAdmin (
 	PhoneNumber VARCHAR2(15),
 	Username VARCHAR2(24) NOT NULL,
 	AdminPassword VARCHAR2(24) NOT NULL,
-	PRIMARY KEY(CompetitionAdminID)
+	PRIMARY KEY (CompetitionAdminID)
 );
 
 
@@ -14,7 +14,7 @@ CREATE TABLE League (
 	LeagueID NUMBER,
 	CompetitionAdminID NUMBER NOT NULL,
 	LeagueName VARCHAR2(30) NOT NULL,
-	PRIMARY KEY(LeagueID, CompetitionAdminID),
+	PRIMARY KEY (LeagueID, CompetitionAdminID),
 	FOREIGN KEY (CompetitionAdminID) REFERENCES CompetitionAdmin(CompetitionAdminID)
 );
 
@@ -32,7 +32,7 @@ CREATE TABLE Team (
 	GoalsAgainst NUMBER NULL,
 	Venue VARCHAR2(20) NULL,
 	GoalDifference NUMBER AS (GoalsFor - GoalsAgainst) NULL,
-	PRIMARY KEY(TeamID, LeagueID, CompetitionAdminID),
+	PRIMARY KEY (TeamID, LeagueID, CompetitionAdminID),
 	FOREIGN KEY (LeagueID, CompetitionAdminID) REFERENCES League(LeagueID, CompetitionAdminID),
 	FOREIGN KEY (CompetitionAdminID) REFERENCES CompetitionAdmin(CompetitionAdminID)
 );
@@ -48,7 +48,7 @@ CREATE TABLE Player (
 	Username VARCHAR2(24) NOT NULL,
 	PlayerPassword VARCHAR2(24) NOT NULL,
 	PlayerPosition VARCHAR2(15) NULL,
-	PRIMARY KEY(PlayerID),
+	PRIMARY KEY (PlayerID),
 	FOREIGN KEY (TeamID) REFERENCES Team(TeamID)
 );
 
@@ -63,7 +63,7 @@ CREATE TABLE TeamManagement (
 	Username VARCHAR2(24) NOT NULL,
 	ManagementPassword VARCHAR2(24) NOT NULL,
 	TeamRole VARCHAR2(15),
-	PRIMARY KEY(TeamManagementID, TeamID),
+	PRIMARY KEY (TeamManagementID, TeamID),
 	FOREIGN KEY (TeamID) REFERENCES Team(TeamID)
 );
 
@@ -76,7 +76,7 @@ CREATE TABLE Referee (
 	PhoneNumber VARCHAR2(15),
 	Username VARCHAR2(24) NOT NULL,
 	RefereePassword VARCHAR2(24) NOT NULL,
-	PRIMARY KEY(RefereeID)
+	PRIMARY KEY (RefereeID)
 );
 
 
@@ -88,7 +88,7 @@ CREATE TABLE Game (
 	Date DATE NOT NULL,
 	Time TIMESTAMP,
 	MatchStatus VARCHAR(10) DEFAULT 'SCHEDULED',
-	PRIMARY KEY(GameID),
+	PRIMARY KEY (GameID),
 	FOREIGN KEY (CompetitionAdminID) REFERENCES CompetitionID(CompetitionAdminID),
 	FOREIGN KEY (RefereeID) REFERENCES Referee(RefereeID)
 );
