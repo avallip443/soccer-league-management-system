@@ -37,6 +37,7 @@ CREATE TABLE Team (
 
 CREATE TABLE Player (
 	PlayerID NUMBER,
+	TeamID NUMBER REFERENCES Team(TeamID),
 	FirstName VARCHAR2(25),
 	LastName VARCHAR2(25),
 	Email VARCHAR2(30),
@@ -44,5 +45,5 @@ CREATE TABLE Player (
 	Username VARCHAR2(24) NOT NULL,
 	Password VARCHAR2(24) NOT NULL,
 	Position VARCHAR2(15),
-	PRIMARY KEY(PlayerID)
+	PRIMARY KEY(PlayerID, TeamID)
 );
