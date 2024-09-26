@@ -106,5 +106,23 @@ CREATE TABLE GameTeamStats (
 	Goals INT NULL,
 	FOREIGN KEY (GameID, CompetitionAdminID, RefereeID) REFERENCES Game(GameID, CompetitionAdminID, RefereeID),
 	FOREIGN KEY (TeamID, LeagueID) REFERENCES Team(TeamID, LeagueID),
-
 );
+
+CREATE TABLE GamePlayerStats (
+	GameID NUMBER NOT NULL,
+	PlayerID NUMBER NOT NULL,
+	CompetitionAdminID NUMBER NOT NULL,
+	RefereeID NUMBER NOT NULL,
+	TeamID NUMBER NOT NULL,
+	LeagueID NUMBER NOT NULL,
+	CompetitionAdminID NUMBER NOT NULL,
+	Saves NUMBER NULL,
+	Goals NUMBER NULL,
+	Assists NUMBER NULL,
+	Blocks NUMBER NULL,
+	RedCards NUMBER NULL,
+	YellowCards NUMBER NULL,
+	FOREIGN KEY (GameID, CompetitionAdminID, RefereeID) REFERENCES Game(GameID, CompetitionAdminID, RefereeID),
+	FOREIGN KEY (TeamID, LeagueID, CompetitionAdminID) REFERENCES Player(TeamID, LeagueID, CompetitionAdminID),
+);
+
