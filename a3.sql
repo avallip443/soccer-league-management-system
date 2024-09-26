@@ -6,5 +6,5 @@ CREATE TABLE CompetitionAdmin {
 	PhoneNumber VARCHAR2(15),
 	Username VARCHAR2(24) NOT NULL,
 	Password VARCHAR(24) NOT NULL,
-PRIMARY KEY(CompetitionAdminID)
+	PRIMARY KEY(CompetitionAdminID)
 };
