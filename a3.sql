@@ -41,6 +41,8 @@ CREATE TABLE Team (
 CREATE TABLE Player (
 	PlayerID NUMBER,
 	TeamID NUMBER NOT NULL,
+	LeagueID NUMBER NOT NULL,
+	CompetitionAdminID NUMBER NOT NULL,
 	FirstName VARCHAR2(25) NOT NULL,
 	LastName VARCHAR2(25) NOT NULL,
 	Email VARCHAR2(30),
@@ -49,13 +51,15 @@ CREATE TABLE Player (
 	PlayerPassword VARCHAR2(24) NOT NULL,
 	PlayerPosition VARCHAR2(15) NULL,
 	PRIMARY KEY (PlayerID),
-	FOREIGN KEY (TeamID) REFERENCES Team(TeamID)
+	FOREIGN KEY (TeamID, LeagueID, CompetitionAdminID) REFERENCES Team(TeamID, LeagueID, CompetitionAdminID)
 );
 
 
 CREATE TABLE TeamManagement (
 	TeamManagementID NUMBER,
 	TeamID NUMBER NOT NULL,
+	LeagueID NUMBER NOT NULL,
+	CompetitionAdminID NUMBER NOT NULL,
 	FirstName VARCHAR2(25) NOT NULL,
 	LastName VARCHAR2(25) NOT NULL,
 	Email VARCHAR2(30),
@@ -64,7 +68,7 @@ CREATE TABLE TeamManagement (
 	ManagementPassword VARCHAR2(24) NOT NULL,
 	TeamRole VARCHAR2(15),
 	PRIMARY KEY (TeamManagementID, TeamID),
-	FOREIGN KEY (TeamID) REFERENCES Team(TeamID)
+	FOREIGN KEY (TeamID, LeagueID, CompetitionAdminID) REFERENCES Team(TeamID, LeagueID, CompetitionAdminID)
 );
 
 
