@@ -99,6 +99,7 @@ CREATE TABLE Game (
 	FOREIGN KEY (RefereeID) REFERENCES Referee(RefereeID)
 );
 
+
 CREATE TABLE GameTeamStats (
 	GameID NUMBER NOT NULL,
 	TeamID NUMBER NOT NULL,
@@ -110,6 +111,7 @@ CREATE TABLE GameTeamStats (
 	FOREIGN KEY (GameID, CompetitionAdminID, RefereeID) REFERENCES Game(GameID, CompetitionAdminID, RefereeID),
 	FOREIGN KEY (TeamID, LeagueID) REFERENCES Team(TeamID, LeagueID)
 );
+
 
 CREATE TABLE GamePlayerStats (
 	GameID NUMBER NOT NULL,
