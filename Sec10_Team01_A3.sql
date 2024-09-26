@@ -1,3 +1,5 @@
+--- Group: Joseph Guirguis (501172194), Sindi Gurakuqi (501197737), Arathi Vallipuranathan (501168322)
+ 
 CREATE TABLE CompetitionAdmin (
 	CompetitionAdminID NUMBER,
 	FirstName VARCHAR2(25),
@@ -105,7 +107,7 @@ CREATE TABLE GameTeamStats (
 	RefereeID NUMBER NOT NULL,
 	Goals INT NULL,
 	FOREIGN KEY (GameID, CompetitionAdminID, RefereeID) REFERENCES Game(GameID, CompetitionAdminID, RefereeID),
-	FOREIGN KEY (TeamID, LeagueID) REFERENCES Team(TeamID, LeagueID),
+	FOREIGN KEY (TeamID, LeagueID) REFERENCES Team(TeamID, LeagueID)
 );
 
 CREATE TABLE GamePlayerStats (
