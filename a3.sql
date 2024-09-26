@@ -13,6 +13,7 @@ CREATE TABLE CompetitionAdmin {
 CREATE TABLE League {
 	LeagueID NUMBER,
 	CompetitionAdminID NUMBER REFERENCES CompetitionAdmin(CompetitionAdminID),
+	LeagueName VARCHAR2(30),
 	PRIMARY KEY(LeagueID, CompetitionAdminID)
 };
 
