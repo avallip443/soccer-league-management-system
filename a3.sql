@@ -13,8 +13,9 @@ CREATE TABLE CompetitionAdmin {
 CREATE TABLE League {
 	LeagueID NUMBER,
 	CompetitionAdminID NUMBER REFERENCES CompetitionAdmin(CompetitionAdminID),
-	PRIMARY KEY(LeagueID)
+	PRIMARY KEY(LeagueID, CompetitionAdminID)
 };
+
 
 CREATE TABLE Player {
 	PlayerID NUMBER,
