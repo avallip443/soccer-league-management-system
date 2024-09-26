@@ -103,12 +103,10 @@ CREATE TABLE Game (
 CREATE TABLE GameTeamStats (
 	GameID NUMBER NOT NULL,
 	TeamID NUMBER NOT NULL,
-	CompetitionAdminID NUMBER NOT NULL,
 	LeagueID NUMBER NOT NULL,
-	RefereeID NUMBER NOT NULL,
 	Goals NUMBER NULL,
 	PRIMARY KEY (GameID, TeamID),
-	FOREIGN KEY (GameID, CompetitionAdminID, RefereeID) REFERENCES Game(GameID, CompetitionAdminID, RefereeID),
+	FOREIGN KEY (GameID) REFERENCES Game(GameID),
 	FOREIGN KEY (TeamID, LeagueID) REFERENCES Team(TeamID, LeagueID)
 );
 
