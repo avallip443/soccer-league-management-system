@@ -6,7 +6,6 @@
 	PhoneNumber VARCHAR2(15),
 	Username VARCHAR2(24) NOT NULL UNIQUE,
 	AdminPassword VARCHAR2(24) NOT NULL,
-	PRIMARY KEY (CompetitionAdminID)
 );
 
 
@@ -50,7 +49,6 @@ CREATE TABLE Player (
 	Username VARCHAR2(24) NOT NULL UNIQUE,
 	PlayerPassword VARCHAR2(24) NOT NULL,
 	PlayerPosition VARCHAR2(15),
-	PRIMARY KEY (PlayerID),
 	CHECK (PlayerPosition IN ('Goalkeeper', 'Defender', 'Midfielder', 'Forward')),
     	CONSTRAINT fk_team_for_player FOREIGN KEY (TeamID) REFERENCES Team(TeamID)
 );
