@@ -1,8 +1,4 @@
 INSERT INTO Game (GameID, CompetitionAdminID, RefereeID, GameLocation, GameDate, GameTime, MatchStatus) 
-VALUES (1, 1, 2, 'Central Stadium', TO_DATE('2024-10-05', 'YYYY-MM-DD'), TO_TIMESTAMP('2024-10-05 15:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'SCHEDULED');
-
-
-INSERT INTO Game (GameID, CompetitionAdminID, RefereeID, GameLocation, GameDate, GameTime, MatchStatus) 
 VALUES (1, 4, 1, 'Mississauga', TO_DATE('2024-10-01', 'YYYY-MM-DD'), TO_TIMESTAMP('17:00:00', 'HH24:MI:SS'), 'SCHEDULED');
 
 INSERT INTO Game (GameID, CompetitionAdminID, RefereeID, GameLocation, GameDate, GameTime, MatchStatus) 
