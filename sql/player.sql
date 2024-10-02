@@ -79,3 +79,45 @@ VALUES (23, 6, 2, 2, 'Marcos', 'Llorente', 'mllorente@atleticomadrid.com', '000-
 
 INSERT INTO Player (PlayerID, TeamID, LeagueID, CompetitionAdminID, FirstName, LastName, Email, PhoneNumber, Username, PlayerPassword, PlayerPosition) 
 VALUES (24, 6, 2, 2, 'Reinildo', 'Mandava', 'rmandava@atleticomadrid.com', '000-000-0024', 'rmandava', 'password789', 'Defender');
+
+
+
+-- Insert players for teams for Serie A
+-- Insert players for Juventus
+INSERT INTO Player (PlayerID, TeamID, LeagueID, CompetitionAdminID, FirstName, LastName, Email, PhoneNumber, Username, PlayerPassword, PlayerPosition) 
+VALUES (25, 7, 3, 3, 'Michele', 'Di Gregorio', 'mdigregorio@juventus.com', '000-000-0025', 'mdigregorio', 'password123', 'Goalkeeper');
+
+INSERT INTO Player (PlayerID, TeamID, LeagueID, CompetitionAdminID, FirstName, LastName, Email, PhoneNumber, Username, PlayerPassword, PlayerPosition) 
+VALUES (26, 7, 3, 3, 'Kenan', 'Yildiz', 'kyildiz@juventus.com', '000-000-0026', 'kyildiz', 'password456', 'Forward');
+
+INSERT INTO Player (PlayerID, TeamID, LeagueID, CompetitionAdminID, FirstName, LastName, Email, PhoneNumber, Username, PlayerPassword, PlayerPosition) 
+VALUES (27, 7, 3, 3, 'Douglas', 'Luiz', 'dluiz@juventus.com', '000-000-0027', 'dluiz', 'password789', 'Midfielder');
+
+INSERT INTO Player (PlayerID, TeamID, LeagueID, CompetitionAdminID, FirstName, LastName, Email, PhoneNumber, Username, PlayerPassword, PlayerPosition) 
+VALUES (28, 7, 3, 3, 'Andrea', 'Cambiaso', 'acambiaso@juventus.com', '000-000-0028', 'acambiaso', 'password789', 'Defender');
+
+-- Insert players for AC Milan
+INSERT INTO Player (PlayerID, TeamID, LeagueID, CompetitionAdminID, FirstName, LastName, Email, PhoneNumber, Username, PlayerPassword, PlayerPosition) 
+VALUES (29, 8, 3, 3, 'Mike', 'Maignan', 'mmaignan@acmilan.com', '000-000-0029', 'mmaignan', 'password123', 'Goalkeeper');
+
+INSERT INTO Player (PlayerID, TeamID, LeagueID, CompetitionAdminID, FirstName, LastName, Email, PhoneNumber, Username, PlayerPassword, PlayerPosition) 
+VALUES (30, 8, 3, 3, 'Rafael', 'Leão', 'rleao@acmilan.com', '000-000-0030', 'rleao', 'password456', 'Forward');
+
+INSERT INTO Player (PlayerID, TeamID, LeagueID, CompetitionAdminID, FirstName, LastName, Email, PhoneNumber, Username, PlayerPassword, PlayerPosition) 
+VALUES (31, 8, 3, 3, 'Tijjani', 'Reijnders', 'treijnders@acmilan.com', '000-000-0031', 'treijnders', 'password789', 'Midfielder');
+
+INSERT INTO Player (PlayerID, TeamID, LeagueID, CompetitionAdminID, FirstName, LastName, Email, PhoneNumber, Username, PlayerPassword, PlayerPosition) 
+VALUES (32, 8, 3, 3, 'Theo', 'Hernández', 'thernandez@acmilan.com', '000-000-0032', 'thernandez', 'password789', 'Defender');
+
+-- Insert players for Inter Milan
+INSERT INTO Player (PlayerID, TeamID, LeagueID, CompetitionAdminID, FirstName, LastName, Email, PhoneNumber, Username, PlayerPassword, PlayerPosition) 
+VALUES (33, 9, 3, 3, 'Yann', 'Sommer', 'ysommer@intermilan.com', '000-000-0033', 'ysommer', 'password123', 'Goalkeeper');
+
+INSERT INTO Player (PlayerID, TeamID, LeagueID, CompetitionAdminID, FirstName, LastName, Email, PhoneNumber, Username, PlayerPassword, PlayerPosition) 
+VALUES (34, 9, 3, 3, 'Marcus', 'Thuram', 'mthuram@intermilan.com', '000-000-0034', 'mthuram', 'password456', 'Forward');
+
+INSERT INTO Player (PlayerID, TeamID, LeagueID, CompetitionAdminID, FirstName, LastName, Email, PhoneNumber, Username, PlayerPassword, PlayerPosition) 
+VALUES (35, 9, 3, 3, 'Davide', 'Frattesi', 'dfrattesi@intermilan.com', '000-000-0035', 'dfrattesi', 'password789', 'Midfielder');
+
+INSERT INTO Player (PlayerID, TeamID, LeagueID, CompetitionAdminID, FirstName, LastName, Email, PhoneNumber, Username, PlayerPassword, PlayerPosition) 
+VALUES (36, 9, 3, 3, 'Carlos', 'Augusto', 'caugusto@intermilan.com', '000-000-0036', 'caugusto', 'password789', 'Defender');

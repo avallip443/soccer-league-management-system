@@ -20,7 +20,7 @@ INSERT INTO Team (TeamID, LeagueID, CompetitionAdminID, TeamName, Points, Wins, 
 VALUES (6, 2, 2, 'Atletico Madrid', 0, 0, 0, 0, 0, 0, 'Wanda Metropolitano');
 
 
--- Insert Series A
+-- Insert Serie A
 INSERT INTO Team (TeamID, LeagueID, CompetitionAdminID, TeamName, Points, Wins, Losses, Draws, GoalsFor, GoalsAgainst, Venue) 
 VALUES (7, 3, 3, 'Juventus', 0, 0, 0, 0, 0, 0, 'Allianz Stadium');
 
@@ -29,3 +29,4 @@ VALUES (8, 3, 3, 'AC Milan', 0, 0, 0, 0, 0, 0, 'San Siro');
 
 INSERT INTO Team (TeamID, LeagueID, CompetitionAdminID, TeamName, Points, Wins, Losses, Draws, GoalsFor, GoalsAgainst, Venue) 
 VALUES (9, 3, 3, 'Inter Milan', 0, 0, 0, 0, 0, 0, 'San Siro');
+
