@@ -59,6 +59,7 @@ INSERT INTO TeamManagement (TeamManagementID, TeamID, FirstName, LastName, Email
 VALUES (16, 9, 'Massimiliano', 'Farris', 'mfarris@intermilan.com', '000-016-0000', 'mfarris', 'password567', 'Assistant Manager');
 
 
+
 -- Insert management for Mississauga Warriors
 INSERT INTO TeamManagement (TeamManagementID, TeamID, FirstName, LastName, Email, PhoneNumber, Username, ManagementPassword, TeamRole) 
 VALUES (17, 10, 'Sindi1', 'Gur', 'sindi1@mwarriors.com', '000-017-0000', 'sindig1', 'password456', 'Manager');
