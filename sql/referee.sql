@@ -10,6 +10,3 @@ VALUES (3, 'David', 'Williams', 'dwilliams@referees.com', '555-001-0003', 'dwill
 
 INSERT INTO Referee (RefereeID, FirstName, LastName, Email, PhoneNumber, Username, RefereePassword) 
 VALUES (4, 'James', 'Brown', 'jbrown@referees.com', '555-001-0004', 'jbrown', 'password101');
-
-INSERT INTO Referee (RefereeID, FirstName, LastName, Email, PhoneNumber, Username, RefereePassword) 
-VALUES (5, 'Rebecca', 'Jones', 'rjones@referees.com', '555-001-0005', 'rjones', 'password202');
