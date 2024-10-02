@@ -1,17 +1,19 @@
- CREATE TABLE CompetitionAdmin (
+--- Group: Joseph Guirguis (501172194), Sindi Gurakuqi (501197737), Arathi Vallipuranathan (501168322)
+ 
+CREATE TABLE CompetitionAdmin (
 	CompetitionAdminID NUMBER PRIMARY KEY,
 	FirstName VARCHAR2(25),
 	LastName VARCHAR2(25),
 	Email VARCHAR2(50) UNIQUE,
 	PhoneNumber VARCHAR2(15),
 	Username VARCHAR2(24) NOT NULL UNIQUE,
-	AdminPassword VARCHAR2(24) NOT NULL
+	AdminPassword VARCHAR2(24) NOT NULL,
 );
 
 
 CREATE TABLE League (
 	LeagueID NUMBER PRIMARY KEY,
-	CompetitionAdminID NUMBER,
+	CompetitionAdminID NUMBER NOT NULL,
 	LeagueName VARCHAR2(30) NOT NULL,
 	CONSTRAINT fk_admin_for_league FOREIGN KEY (CompetitionAdminID) REFERENCES CompetitionAdmin(CompetitionAdminID)
 );
@@ -20,7 +22,6 @@ CREATE TABLE League (
 CREATE TABLE Team (
 	TeamID NUMBER PRIMARY KEY,
 	LeagueID NUMBER NOT NULL,
-	CompetitionAdminID NUMBER NOT NULL,
 	TeamName VARCHAR2(30) NOT NULL,
 	Points NUMBER DEFAULT 0,
 	Wins NUMBER DEFAULT 0,
@@ -31,7 +32,6 @@ CREATE TABLE Team (
 	Venue VARCHAR2(20),
 	GoalDifference NUMBER AS (GoalsFor - GoalsAgainst),
 	CONSTRAINT fk_league_for_team FOREIGN KEY (LeagueID) REFERENCES League(LeagueID),
-	CONSTRAINT fk_admin_for_team FOREIGN KEY (CompetitionAdminID) REFERENCES CompetitionAdmin(CompetitionAdminID),
     CHECK (GoalsFor >= 0),
 	CHECK (GoalsAgainst >= 0)
 );
@@ -40,8 +40,6 @@ CREATE TABLE Team (
 CREATE TABLE Player (
 	PlayerID NUMBER PRIMARY KEY,
 	TeamID NUMBER NOT NULL,
-	LeagueID NUMBER NOT NULL,
-	CompetitionAdminID NUMBER NOT NULL,
 	FirstName VARCHAR2(25) NOT NULL,
 	LastName VARCHAR2(25) NOT NULL,
 	Email VARCHAR2(30) UNIQUE,
@@ -55,66 +53,66 @@ CREATE TABLE Player (
 
 
 CREATE TABLE TeamManagement (
-	TeamManagementID NUMBER PRIMARY KEY,
+    TeamManagementID NUMBER PRIMARY KEY,
 	TeamID NUMBER NOT NULL,
-	FirstName VARCHAR2(25) NOT NULL,
+    FirstName VARCHAR2(25) NOT NULL,
 	LastName VARCHAR2(25) NOT NULL,
-	Email VARCHAR2(50) UNIQUE,
+    Email VARCHAR2(50) UNIQUE,
 	PhoneNumber VARCHAR2(20),
-	Username VARCHAR2(24) NOT NULL UNIQUE,
-	ManagementPassword VARCHAR2(255) NOT NULL,
-	TeamRole VARCHAR2(15),
+    Username VARCHAR2(24) NOT NULL UNIQUE,
+	ManagementPassword VARCHAR2(24) NOT NULL,
+    TeamRole VARCHAR2(15),
 	CONSTRAINT fk_team_management_for_team FOREIGN KEY (TeamID) REFERENCES Team(TeamID)
 );
 
 
 CREATE TABLE Referee (
-	RefereeID NUMBER PRIMARY KEY,
+    RefereeID NUMBER PRIMARY KEY,
 	FirstName VARCHAR2(25) NOT NULL,
-	LastName VARCHAR2(25) NOT NULL,
+    LastName VARCHAR2(25) NOT NULL,
 	Email VARCHAR2(50) NOT NULL UNIQUE,
-	PhoneNumber VARCHAR2(20),
+    PhoneNumber VARCHAR2(20),
 	Username VARCHAR2(24) NOT NULL UNIQUE,
-	RefereePassword VARCHAR2(255) NOT NULL
+    RefereePassword VARCHAR2(255) NOT NULL
 );
 
 
 CREATE TABLE Game (
-	GameID NUMBER PRIMARY KEY, 
+    GameID NUMBER PRIMARY KEY, 
 	CompetitionAdminID NUMBER NOT NULL,
-	RefereeID NUMBER NOT NULL,
+    RefereeID NUMBER NOT NULL,
 	GameLocation VARCHAR2(50) NOT NULL,
-	GameDate DATE NOT NULL,
+    GameDate DATE NOT NULL,
 	GameTime TIMESTAMP,
-	MatchStatus VARCHAR2(10) DEFAULT 'SCHEDULED',
+    MatchStatus VARCHAR2(10) DEFAULT 'SCHEDULED',
 	CONSTRAINT fk_admin_for_game FOREIGN KEY (CompetitionAdminID) REFERENCES CompetitionAdmin(CompetitionAdminID),
-	CONSTRAINT fk_referee_for_game FOREIGN KEY (RefereeID) REFERENCES Referee(RefereeID),
-	CHECK (MatchStatus IN ('SCHEDULED', 'COMPLETED', 'CANCELLED', 'DELAYED'))
+    CONSTRAINT fk_referee_for_game FOREIGN KEY (RefereeID) REFERENCES Referee(RefereeID),
+	CHECK (MatchStatus IN ('SCHEDULED', 'COMPLETED', 'CANCELLED','DELAYED'))
 );
 
 
 CREATE TABLE GameTeamStats (
-	GameID NUMBER NOT NULL,
+    GameID NUMBER NOT NULL,
 	TeamID NUMBER NOT NULL,
-	Goals NUMBER DEFAULT 0 NOT NULL,
+    Goals NUMBER DEFAULT 0 NOT NULL,
 	PRIMARY KEY (GameID, TeamID),
-	CONSTRAINT fk_game_for_gameTeamStats FOREIGN KEY (GameID) REFERENCES Game(GameID),
+    CONSTRAINT fk_game_for_gameTeamStats FOREIGN KEY (GameID) REFERENCES Game(GameID),
 	CONSTRAINT fk_team_for_gameTeamStats FOREIGN KEY (TeamID) REFERENCES Team(TeamID)
 );
 
 
 CREATE TABLE GamePlayerStats (
-	GameID NUMBER NOT NULL,
+    GameID NUMBER NOT NULL,
 	PlayerID NUMBER NOT NULL,
-	PlayerSaves NUMBER DEFAULT 0,
+    PlayerSaves NUMBER DEFAULT 0,
 	PlayerGoals NUMBER DEFAULT 0,
-	PlayerAssists NUMBER DEFAULT 0,
+    PlayerAssists NUMBER DEFAULT 0,
 	PlayerBlocks NUMBER DEFAULT 0,
-	PlayerRedCards NUMBER DEFAULT 0,
+    PlayerRedCards NUMBER DEFAULT 0,
 	PlayerYellowCards NUMBER DEFAULT 0,
-	PlayerLineupStatus VARCHAR2(12) DEFAULT 'RESERVES',
+    PlayerLineupStatus VARCHAR2(12) DEFAULT 'RESERVES',
 	PRIMARY KEY (GameID, PlayerID),
-	CONSTRAINT fk_game_for_gamePlayerStats FOREIGN KEY (GameID) REFERENCES Game(GameID),
+    CONSTRAINT fk_game_for_gamePlayerStats FOREIGN KEY (GameID) REFERENCES Game(GameID),
 	CONSTRAINT fk_player_for_gamePlayerStats FOREIGN KEY (PlayerID) REFERENCES Player(PlayerID),
-	CHECK (PlayerLineupStatus IN ('FIRSTTEAM', 'SUBSTITUTE', 'RESERVES'))
+    CHECK (PlayerLineupStatus IN ('FIRSTTEAM', 'SUBSTITUTE', 'RESERVES'))
 );
