@@ -1,5 +1,3 @@
---- Group: Joseph Guirguis (501172194), Sindi Gurakuqi (501197737), Arathi Vallipuranathan (501168322)
- 
 CREATE TABLE CompetitionAdmin (
 	CompetitionAdminID NUMBER PRIMARY KEY,
 	FirstName VARCHAR2(25),
