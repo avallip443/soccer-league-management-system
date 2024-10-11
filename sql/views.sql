@@ -41,6 +41,16 @@ GROUP BY g.GameID, g.GameDate, g.GameLocation;
 
 
 
+/* Create view of all games played and upcoming games within a league. Joins tables Team, League, Games, GameTeamStats, and CompetitionAdmin tables.. */
+CREATE VIEW fixtures AS
+SELECT LEAST(t1.TeamName, t2.TeamName) AS Team1, GREATEST(t1.TeamName, t2.TeamName) AS Team2,
+gts1.Goals AS Team1Goals, gts2.Goals AS Team2Goals, g.GameDate, g.RefereeID, g.MatchStatus, l.LeagueName, l.LeagueID
+FROM Game g, GameTeamStats gts1, GameTeamStats gts2, Team t1, Team t2, League l, CompetitionAdmin c
+WHERE gts1.TeamID = t1.TeamID AND gts2.TeamID = t2.TeamID AND g.CompetitionAdminID = l.CompetitionAdminID
+AND g.GameID = gts1.GameID AND g.GameID = gts2.GameID AND gts1.TeamID != gts2.TeamID 
+AND (t1.TeamName != LEAST(t1.TeamName,t2.TeamName)) AND l.CompetitionAdminID = c.CompetitionAdminID
+ORDER BY g.GameDate;
+
 
 /* 
 VIEW #3
@@ -50,37 +60,12 @@ well this season.
 */
 
 CREATE VIEW playersRankedByGoals AS
-SELECT p.PlayerID,p.FirstName, p.LastName,p.PlayerPosition, t.TeamName, SUM(gps.PlayerGoals) AS TotalGoals,l.LeagueID
+SELECT p.PlayerID, p.FirstName, p.LastName, p.PlayerPosition, t.TeamName, SUM(gps.PlayerGoals) AS TotalGoals, l.LeagueID
 FROM Player p, GamePlayerStats gps, Team t, League l
 WHERE p.PlayerID = gps.PlayerID AND p.TeamID = t.TeamID AND l.LeagueID = t.LeagueID
 GROUP BY p.PlayerID,p.FirstName, p.LastName,p.PlayerPosition, t.TeamName,l.LeagueID
 ORDER BY TotalGoals DESC;
 
-/* 
-VIEW #1
-4) A general fan want to see all the games that were played for his favourite league (in the view, could search for specific league)
-to remember the craziest matchups that happened and check if there are any new interesting games coming up.
-*/
-
-CREATE VIEW fixtures AS
-SELECT LEAST(t1.TeamName,t2.TeamName) AS Team1,GREATEST(t1.TeamName,t2.TeamName) AS Team2,
-gts1.Goals AS Team1Goals, gts2.Goals AS Team2Goals, g.GameDate,g.RefereeID,g.MatchStatus,l.LeagueName,l.LeagueID
-FROM Game g, GameTeamStats gts1, GameTeamStats gts2, Team t1, Team t2,League l,CompetitionAdmin c
-WHERE gts1.TeamID = t1.TeamID AND gts2.TeamID = t2.TeamID AND g.CompetitionAdminID = l.CompetitionAdminID
-AND g.GameID = gts1.GameID AND g.GameID = gts2.GameID AND gts1.TeamID != gts2.TeamID 
-AND (t1.TeamName != LEAST(t1.TeamName,t2.TeamName)) AND l.CompetitionAdminID = c.CompetitionAdminID
-ORDER BY g.GameDate;
-
-/* 
-5) A special trophy is given to those who got the most amount of hattricks or higher (3 goals or more in a single game). 
-The competition Admin (Joseph Guirguis) wants to find who got the most amount of hattricks (more than 3 in a game counts as a hattrick).
-*/
-
-SELECT p.PlayerID, p.FirstName, p.LastName, p.PlayerPosition, t.TeamName,COUNT(gps.PlayerID) AS hattricks
-FROM GamePlayerStats gps, Player p, Game g, Team t
-WHERE p.PlayerID = gps.PlayerID AND gps.PlayerGoals >= 3 AND g.GameID = gps.GameID AND p.TeamID = t.TeamID
-GROUP BY p.PlayerID, p.FirstName, p.LastName, p.PlayerPosition, t.TeamName
-ORDER BY hattricks DESC;
 
 
 /* 
