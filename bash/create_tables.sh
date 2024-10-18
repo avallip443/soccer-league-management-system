@@ -1,6 +1,8 @@
-#!/bin/sh
-# export LD_LIBRARY_PATH=/usr/lib/oracle/12.1/client64/lib
-sqlplus64 "username/password@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=oracle.scs.ryerson.c)(Port=1521))(CONNECT_DATA=(SID=orcl)))" <<EOF
+#!/bin/bash
+
+export LD_LIBRARY_PATH=/usr/lib/oracle/12.1/client64/lib
+sqlplus64 "username/password@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=oracle.scs.ryerson.ca)(Port=1521))(CONNECT_DATA=(SID=orcl)))" <<EOF
+
 
 CREATE TABLE CompetitionAdmin (
 	CompetitionAdminID NUMBER PRIMARY KEY,
@@ -9,7 +11,7 @@ CREATE TABLE CompetitionAdmin (
 	Email VARCHAR2(50) UNIQUE,
 	PhoneNumber VARCHAR2(15),
 	Username VARCHAR2(24) NOT NULL UNIQUE,
-	AdminPassword VARCHAR2(24) NOT NULL,
+	AdminPassword VARCHAR2(24) NOT NULL
 );
 
 CREATE TABLE League (
