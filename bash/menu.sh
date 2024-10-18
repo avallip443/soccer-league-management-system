@@ -55,7 +55,7 @@ MainMenu() {
                 echo "-----------------------------------------------------------------"
                 echo " 1) Query 1: Players in Team managed by 'sindig1'"
                 echo " 2) Query 2: League standings for 'joe027'"
-                echo " 3) Query 3: Player with the most goals"
+                echo " 3) Query 3: Players sorted most goals scored"
                 echo " 4) Query 4: Games in Mississauga League"
                 echo " 5) Query 5: Players with the most hattricks"
                 echo " 6) Return to Main Menu"
