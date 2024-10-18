@@ -14,7 +14,8 @@ MainMenu() {
         echo " $IS_SELECTED1 1) Drop Tables"
         echo " $IS_SELECTED2 2) Create Tables"
         echo " $IS_SELECTED3 3) Populate Tables"
-        echo " $IS_SELECTED4 4) Query Tables"
+        echo " $IS_SELECTED4 4) Basic Queries"
+        echo " $IS_SELECTED5 5) Advanced Queries"
         echo " "
         echo " $IS_SELECTEDX X) Force/Stop/Kill Oracle DB"
         echo " "
@@ -40,7 +41,59 @@ MainMenu() {
                 Pause
                 ;;
             4)
-                bash queries.sh
+            # Basic Queries Submenu
+            while true; do
+                clear
+                echo "================================================================="
+                echo "| Basic Queries Menu                                             |"
+                echo "| Select a query to run:                                         |"
+                echo "-----------------------------------------------------------------"
+                echo " 1) Query 1: Players in Team managed by 'sindig1'"
+                echo " 2) Query 2: League standings for 'joe027'"
+                echo " 3) Query 3: Player with the most goals"
+                echo " 4) Query 4: Games in Mississauga League"
+                echo " 5) Query 5: Players with the most hattricks"
+                echo " 6) Return to Main Menu"
+                echo "Choose: "
+
+                read QUERY_CHOICE
+                case "$QUERY_CHOICE" in
+                    1)
+                        echo "Running Query 1..."
+                        bash query1.sh 
+                        Pause
+                        ;;
+                    2)
+                        echo "Running Query 2..."
+                        bash query2.sh 
+                        Pause
+                        ;;
+                    3)
+                        echo "Running Query 3..."
+                        bash query3.sh
+                        Pause
+                        ;;
+                    4)
+                        echo "Running Query 4..."
+                        bash query4.sh 
+                        Pause
+                        ;;
+                    5)
+                        echo "Running Query 5..."
+                        bash query5.sh 
+                        Pause
+                        ;;
+                    6)
+                        break 
+                        ;;
+                    *)
+                        echo "Invalid choice. Please try again."
+                        ;;
+                esac
+            done
+            ;;
+            5)
+                bash advanced_queries.sh
                 Pause
                 ;;
             E)
