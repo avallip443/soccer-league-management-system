@@ -1,9 +1,6 @@
 #!/bin/sh
-
-# Optional: Uncomment and set the correct library path if needed
 # export LD_LIBRARY_PATH=/usr/lib/oracle/12.1/client64/lib
 
-# Connect to the Oracle database using sqlplus
 sqlplus64 "username/password@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=oracle.scs.ryerson.c)(Port=1521))(CONNECT_DATA=(SID=orcl)))" <<EOF
 
 -- Insert data into CompetitionAdmin table
