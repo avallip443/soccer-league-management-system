@@ -1,5 +1,10 @@
 #!/bin/sh
 
+Pause() {
+    echo "Press [Enter] to continue..."
+    read
+}
+
 MainMenu() {
     while [ "$CHOICE" != "START" ]
     do
