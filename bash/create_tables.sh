@@ -17,21 +17,21 @@ CREATE TABLE CompetitionAdmin (
 CREATE TABLE League (
     LeagueID NUMBER PRIMARY KEY,
     CompetitionAdminID NUMBER NOT NULL,
-    LeagueName VARCHAR2(30) NOT NULL,
+    LeagueName VARCHAR2(40) NOT NULL,
     CONSTRAINT fk_admin_for_league FOREIGN KEY (CompetitionAdminID) REFERENCES CompetitionAdmin(CompetitionAdminID)
 );
 
 CREATE TABLE Team (
     TeamID NUMBER PRIMARY KEY,
     LeagueID NUMBER NOT NULL,
-    TeamName VARCHAR2(30) NOT NULL,
+    TeamName VARCHAR2(40) NOT NULL,
     Points NUMBER DEFAULT 0,
     Wins NUMBER DEFAULT 0,
     Losses NUMBER DEFAULT 0,
     Draws NUMBER DEFAULT 0,
     GoalsFor NUMBER DEFAULT 0,
     GoalsAgainst NUMBER DEFAULT 0,
-    Venue VARCHAR2(20),
+    Venue VARCHAR2(40),
     GoalDifference NUMBER AS (GoalsFor - GoalsAgainst),
     CONSTRAINT fk_league_for_team FOREIGN KEY (LeagueID) REFERENCES League(LeagueID),
     CHECK (GoalsFor >= 0),
@@ -61,7 +61,7 @@ CREATE TABLE TeamManagement (
     PhoneNumber VARCHAR2(20),
     Username VARCHAR2(24) NOT NULL UNIQUE,
     ManagementPassword VARCHAR2(24) NOT NULL,
-    TeamRole VARCHAR2(15),
+    TeamRole VARCHAR2(40),
     CONSTRAINT fk_team_management_for_team FOREIGN KEY (TeamID) REFERENCES Team(TeamID)
 );
 
