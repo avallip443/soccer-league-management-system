@@ -76,17 +76,17 @@ MainMenu() {
                             ;;
                         3)
                             echo "Running Query 3..."
-                            bash query3.sh
+                            bash basic_query3.sh
                             Pause
                             ;;
                         4)
                             echo "Running Query 4..."
-                            bash query4.sh 
+                            bash basic_query4.sh 
                             Pause
                             ;;
                         5)
                             echo "Running Query 5..."
-                            bash query5.sh 
+                            bash basic_query5.sh 
                             Pause
                             ;;
                         6)
