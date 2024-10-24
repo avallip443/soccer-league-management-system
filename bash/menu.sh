@@ -71,7 +71,7 @@ MainMenu() {
                             ;;
                         2)
                             echo "Running Query 2..."
-                            bash query2.sh 
+                            bash basic_query2.sh 
                             Pause
                             ;;
                         3)
