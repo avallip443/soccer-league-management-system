@@ -190,12 +190,12 @@ VALUES (1, 4, 0, 0, 0, 0, 0, 0, 'FIRSTTEAM');
 
 -- Game 2 (Total Goals = 0)
 INSERT INTO GamePlayerStats (GameID, PlayerID, PlayerSaves, PlayerGoals, PlayerAssists, PlayerBlocks, PlayerRedCards, PlayerYellowCards, PlayerLineupStatus)
-VALUES (2, 1, 3, 0, 0, 0, 0, 1, 'FIRSTTEAM'); 
--- Goalkeeper (3 saves, 1 yellow card)
+VALUES (2, 1, 3, 0, 0, 1, 1, 1, 'FIRSTTEAM'); 
+-- Goalkeeper (3 saves, 1 red card, 1 yellow card)
 
 INSERT INTO GamePlayerStats (GameID, PlayerID, PlayerSaves, PlayerGoals, PlayerAssists, PlayerBlocks, PlayerRedCards, PlayerYellowCards, PlayerLineupStatus)
-VALUES (2, 2, 0, 0, 0, 0, 0, 0, 'FIRSTTEAM'); 
--- Defender
+VALUES (2, 2, 0, 0, 0, 1, 1, 0, 'FIRSTTEAM'); 
+-- Defender (1 red card, 1 yellow card)
 
 INSERT INTO GamePlayerStats (GameID, PlayerID, PlayerSaves, PlayerGoals, PlayerAssists, PlayerBlocks, PlayerRedCards, PlayerYellowCards, PlayerLineupStatus)
 VALUES (2, 3, 0, 0, 0, 0, 0, 0, 'FIRSTTEAM'); 
