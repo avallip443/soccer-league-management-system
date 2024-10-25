@@ -5,7 +5,6 @@ sqlplus64 "username/password@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=oracle.sc
 
 -- To see the players who scored higher than 0.5, used GROUP BY  
 
-CREATE VIEW GoodPlayerPerformance AS
 SELECT tm.Username,p.FirstName, p.LastName,p.PlayerPosition, t.TeamName, AVG(gps.PlayerGoals) AS GoalsPerGame
 FROM Player p, GamePlayerStats gps, Team t, TeamManagement tm
 WHERE p.PlayerID = gps.PlayerID AND p.TeamID = t.TeamID AND tm.TeamID = p.TeamID
