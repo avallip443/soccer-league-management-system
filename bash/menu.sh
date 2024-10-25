@@ -20,8 +20,7 @@ MainMenu() {
         echo " $IS_SELECTED2 2) Create Tables"
         echo " $IS_SELECTED3 3) Populate Tables"
         echo " $IS_SELECTED4 4) Basic Queries"
-        echo " $IS_SELECTED5 5) Advanced Queries"
-        echo " $IS_SELECTED6 6) Interesting Advanced Queries"
+        echo " $IS_SELECTED5 5) Interesting Advanced Queries"
         echo " "
         echo " $IS_SELECTEDX X) Force/Stop/Kill Oracle DB"
         echo " "
@@ -99,58 +98,6 @@ MainMenu() {
                 done
                 ;;
             5)
-                # Advanced Queries Submenu
-                while true; do
-                    clear
-                    echo "================================================================="
-                    echo "| Advanced Queries Menu                                          |"
-                    echo "| Select a query to run:                                         |"
-                    echo "-----------------------------------------------------------------"
-                    echo " 1) Query 1: "
-                    echo " 2) Query 2: "
-                    echo " 3) Query 3: "
-                    echo " 4) Query 4: "
-                    echo " 5) Query 5: "
-                    echo " 6) Return to Main Menu"
-                    echo "Choose: "
-
-                    read QUERY_CHOICE
-                    case "$QUERY_CHOICE" in
-                        1)
-                            echo "Running Query 1..."
-                            bash advanced_query1.sh 
-                            Pause
-                            ;;
-                        2)
-                            echo "Running Query 2..."
-                            bash advanced_query2.sh 
-                            Pause
-                            ;;
-                        3)
-                            echo "Running Query 3..."
-                            bash advanced_query3.sh
-                            Pause
-                            ;;
-                        4)
-                            echo "Running Query 4..."
-                            bash advanced_query4.sh 
-                            Pause
-                            ;;
-                        5)
-                            echo "Running Query 5..."
-                            bash advanced_query5.sh 
-                            Pause
-                            ;;
-                        6)
-                            break 
-                            ;;
-                        *)
-                            echo "Invalid choice. Please try again."
-                            ;;
-                    esac
-                done
-                ;;
-            6)
                 # Interesting Advanced Queries Submenu
                 while true; do
                     clear
