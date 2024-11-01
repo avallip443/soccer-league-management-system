@@ -9,3 +9,4 @@ VALUES (3, 'Anne', 'Guirguis', 'anne027@example.com', '300-000-0000', 'anne027',
 
 INSERT INTO CompetitionAdmin (CompetitionAdminID, FirstName, LastName, Email, PhoneNumber, Username, AdminPassword) 
 VALUES (4, 'Joesph', 'Guirguis', 'joe027@example.com', '400-000-0000', 'joe027', 'password123');
+l
