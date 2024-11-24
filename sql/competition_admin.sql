@@ -294,13 +294,10 @@ I want the database to search username currently using the website to get all pl
 Maybe Sindi1 wants to update the lineup status or position of a player for next game because a player has poor performance or is injured or has a red card.
 */
 
-SELECT FirstName, LastName, PlayerPosition
-FROM Player
-WHERE TeamID = (
-    SELECT TeamID
-    FROM TeamManagementContact
-    WHERE Username = 'coach_sindi'
-);
+SELECT p.FirstName, p.LastName, p.PlayerPosition
+FROM Player p, TeamManagementContact tmc, TeamManagement tm
+WHERE p.TeamID = tm.TeamID 
+      AND tmc.Username = 'coach_sindi';
 
 /* 
 2) I am the Competition Admin (Joseph Guirguis with username joe027) and I want to see how the standings look, because by the end of the league,
